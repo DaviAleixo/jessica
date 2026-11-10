@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Andrea Bellarosa';
+  src: url('/fonts/Andrea Bellarosa.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --color-marfim: #F8F6F2;
+    --color-salvia-claro: #D8DFD7;
+    --color-verde-suave: #66796E;
+    --color-grafite: #343D39;
+    --color-bege-areia: #C8B9A8;
+  }
+}
+
+@theme {
+  --color-marfim: #F8F6F2;
+  --color-salvia-claro: #D8DFD7;
+  --color-salvia-tint: #EDF2ED;
+  --color-verde-suave: #66796E;
+  --color-verde-escuro: #4D5E54;
+  --color-verde-profundo: #28332C;
+  --color-grafite: #343D39;
+  --color-grafite-claro: #4F5A55;
+  --color-bege-areia: #C8B9A8;
+  --color-bege-suave: #EAE4DC;
+  --color-borda-suave: #E2DDD5;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-signature: "Andrea Bellarosa", cursive;
+}
+
+.font-signature {
+  font-family: "Andrea Bellarosa", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F8F6F2;
+  color: #343D39;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #66796E;
+  color: #FFFFFF;
+}
+
+/* Animações e transições refinadas */
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes rise-in {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 28s linear infinite;
+  transform-origin: center;
+}
+
+.animate-float {
+  animation: float-subtle 4s ease-in-out infinite;
+}
+
+.anim-rise-in {
+  animation: rise-in 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
